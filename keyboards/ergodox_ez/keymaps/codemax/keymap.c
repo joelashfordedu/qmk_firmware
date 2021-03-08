@@ -38,6 +38,7 @@ enum custom_keycodes {
   ST_MACRO_21,
   ST_MACRO_22,
   ST_MACRO_23,
+  ST_MACRO_24,
 };
 
 enum tap_dance_codes {
@@ -223,8 +224,8 @@ TG(3),        KC_J,           KC_L,                KC_U,               KC_Y,    
 // right hand --------------------------------------------------------------------------------------------------
                                  ___, ___,          ___,                   ___,                       ___,                       ___,                                  ___,
                                  ___, ___,          ___,             ST_MACRO_16,    ST_MACRO_17,    ST_MACRO_18,                         ___,
-                                       ___, ST_MACRO_19,    ST_MACRO_20,            ___,            LALT(LCTL(LGUI(LSFT(KC_B)))),    ___,
-                                 ___, ___,          ___,             ST_MACRO_21,    ST_MACRO_22,    ST_MACRO_23,                          ___,
+                                       ___, ST_MACRO_19,    ST_MACRO_20,            ___,              ST_MACRO_24,                         ___,
+                                 ___, ___,          ___,             ST_MACRO_21,    ST_MACRO_22,    ST_MACRO_23,                         ___,
                                                       ___,                    ___,                       ___,                       ___,                                 TO(0),
 // right thumb -------------------------------------------------------------------------------------------------
                ___, ___,
@@ -544,6 +545,12 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     case ST_MACRO_23:
     if (record->event.pressed) {
       SEND_STRING(SS_TAP(X_END) SS_DELAY(100) SS_LSFT(SS_TAP(X_HOME)) SS_DELAY(100) SS_TAP(X_DELETE) SS_DELAY(100) SS_TAP(X_DELETE));
+
+    }
+    break;
+    case ST_MACRO_24:
+    if (record->event.pressed) {
+      SEND_STRING(SS_LCTL(SS_TAP(X_X)) SS_DELAY(50) SS_LSFT(SS_TAP(X_LBRACKET)) SS_DELAY(50) SS_LSFT(SS_TAP(X_RBRACKET)) SS_DELAY(50) SS_TAP(X_LEFT) SS_DELAY(50) SS_TAP(X_ENTER) SS_DELAY(50) SS_LCTL(SS_TAP(X_V)) SS_DELAY(50) SS_TAP(X_ENTER) SS_DELAY(50) SS_TAP(X_UP));
 
     }
     break;
