@@ -187,15 +187,27 @@ TG(3),        KC_J,           KC_L,                KC_U,               KC_Y,    
                ___,
                ___, ___, ___ 
   ),
-  [SYM] = LAYOUT_ergodox_pretty(
-    ___, KC_1,           KC_2,           KC_3,           KC_4,           KC_5,           ___,                                 ___, KC_6,           KC_7,           KC_8,           KC_9,           KC_0,           ___,
-    ST_MACRO_2,     ST_MACRO_3,     KC_AMPR,        KC_PLUS,        KC_ASTR,        KC_EQUAL,       ___,                                 ___, KC_TILD,        KC_SLASH,       KC_MINUS,       KC_PIPE,        ST_MACRO_4,     ST_MACRO_5,
-    ___, KC_LCBR,        KC_LBRACKET,    KC_LPRN,        KC_EXLM,        KC_UNDS,                                                                        ST_MACRO_6,     ST_MACRO_7,     KC_RPRN,        KC_RBRACKET,    KC_RCBR,        ___,
-    ___, KC_BSLASH,      KC_AT,          KC_HASH,        KC_DLR,         KC_PERC,        ___,                                 ___, KC_CIRC,        ___, ST_MACRO_8,     ___, KC_BSLASH,      ___,
-    ___, ___, ___, ___, ___,                                                                                                 ___, ___, ___, ___, TO(0),
-                                                                                                    ___, ___, ___, ___,
-                                                                                                                    ___, ___,
-                                                                                    ___, ___, ___, ___, ___, ___
+  [SYM] = LAYOUT_ergodox(
+  // left hand ---------------------------------------------------------------------------------------------------
+            ___,                KC_1,                  KC_2,               KC_3,             KC_4,               KC_5,           ___,                                
+    ST_MACRO_2,    ST_MACRO_3,      KC_AMPR,        KC_PLUS,        KC_ASTR,        KC_EQUAL,     ___,     
+            ___,              KC_LCBR,        KC_LBRACKET,    KC_LPRN,        KC_EXLM,        KC_UNDS,             
+            ___,           KC_BSLASH,             KC_AT,          KC_HASH,        KC_DLR,          KC_PERC,       ___,     
+            ___,                 ___,                      ___,                  ___,                  ___,                                                                                               
+ // left thumb --------------------------------------------------------------------------------------------------
+                                                                                                 ___, ___,
+                                                                                                       ___,
+                                                                                           ___, ___, ___,
+// right hand --------------------------------------------------------------------------------------------------
+                                 ___,        KC_6,               KC_7,              KC_8,                  KC_9,               KC_0,                 ___,
+                                 ___,      KC_TILD,        KC_SLASH,      KC_MINUS,           KC_PIPE,        ST_MACRO_4,   ST_MACRO_5,
+                                        ST_MACRO_6,  ST_MACRO_7,     KC_RPRN,        KC_RBRACKET,     KC_RCBR,            ___,
+                                 ___,      KC_CIRC,             ___,           ST_MACRO_8,            ___,            KC_BSLASH,           ___,
+                                                                       ___,                  ___,                     ___,                  ___,                TO(0),
+// right thumb -------------------------------------------------------------------------------------------------
+               ___, ___,
+               ___,
+               ___, ___, ___ 
   ),
   [SYMPLUS] = LAYOUT_ergodox_pretty(
     ___, ___, ___, ___, ___, ___, ___,                                 ___, ___, ___, ___, ___, ___, ___,
