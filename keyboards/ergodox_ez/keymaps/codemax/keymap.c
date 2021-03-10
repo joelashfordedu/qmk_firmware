@@ -403,12 +403,13 @@ uint32_t layer_state_set_user(uint32_t state) {
 };
 
 uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
-    switch (keycode) {
-        case LT(1,KC_A):
-            return 190;
-        default:
-            return TAPPING_TERM;
+    if ((keycode == LT(1,KC_A)) || (keycode == LCTL_T(KC_E))) {
+      return 190;
     }
+    if ((keycode == TD(DANCE_0)) || (keycode == TD(DANCE_1)) || (keycode == TD(DANCE_2))) {
+      return 220;
+    }
+    return TAPPING_TERM;
 }
 
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
