@@ -90,11 +90,11 @@ TG(3),      KC_J,        KC_L,          KC_U,          KC_Y,         TD(DANCE_0)
                                                                         ___, 
                                                            ___,  ___,   ___,
   // right hand --------------------------------------------------------------------------------------------------
-                              ___,                   XXX,           XXX,       XXX,            XXX,           XXX,       KC_KP_ASTERISK,
-                    KC_CALCULATOR,  LCTL(KC_V),    KC_KP_7,       KC_KP_8,    KC_KP_9,       KC_COLN,     KC_KP_MINUS,
-                                                     XXX,         KC_KP_4,    KC_KP_5,       KC_KP_6,        KC_X,         KC_KP_PLUS,
-                       ST_MACRO_0,     XXX,        KC_KP_1,       KC_KP_2     KC_KP_3,     KC_KP_SLASH,    KC_ENTER,
-                                                                  KC_SPACE,  KC_KP_COMMA,   KC_KP_DOT,        ___,            TO(0),
+                              ___,     XXX,           XXX,       XXX,        XXX,           XXX,       KC_KP_ASTERISK,
+                    KC_CALCULATOR,  LCTL(KC_V),    KC_KP_7,     KC_KP_8,    KC_KP_9,       KC_COLN,     KC_KP_MINUS,
+                                       XXX,         KC_KP_4,    KC_KP_5,    KC_KP_6,        KC_X,         KC_KP_PLUS,
+                       ST_MACRO_0,     XXX,        KC_KP_1,     KC_KP_2,    KC_KP_3,     KC_KP_SLASH,    KC_ENTER,
+                                                   KC_SPACE,  KC_KP_COMMA,  KC_KP_DOT,      ___,            TO(0),
   // right thumb -------------------------------------------------------------------------------------------------
                          ___,    XXX,
                                  ___,
@@ -108,14 +108,14 @@ TG(3),      KC_J,        KC_L,          KC_U,          KC_Y,         TD(DANCE_0)
     ___, ___,  ___,   ___, ___, ___, ___,    
     ___, ___,  XXX,   ___, ___,        
  // left thumb --------------------------------------------------------------------------------------------------
-                         XX     KC_SCROLLLOCK, 
+                        XXX,    KC_SCROLLLOCK, 
                                           ___,
                         ___,     ___,     ___, 
 // right hand --------------------------------------------------------------------------------------------------
                                 ___,       ___,            ___,         ___,       ___,        ___,         ___,
                                 ___,  LCTL(KC_HOME),  OSM(MOD_LCTL),   KC_UP,    KC_PGUP,      XXX,         XXX,
                                          KC_HOME,        KC_LEFT,     KC_DOWN,   KC_RIGHT,    KC_END,       XXX,
-                               ___,        XXX,         KC_DELETE,      XXX,    KC_PGDOWN,  LCTL(KC_END),   ___,
+                                ___,       XXX,         KC_DELETE,      XXX,    KC_PGDOWN,  LCTL(KC_END),   ___,
                                                            XXX,         XXX,       XXX,        ___,        TO(0),
   // right thumb -------------------------------------------------------------------------------------------------
                         ___,   XXX,
