@@ -39,6 +39,7 @@ enum custom_keycodes {
   ST_MACRO_22,
   ST_MACRO_23,
   ST_MACRO_24,
+  ST_MACRO_25,
 };
 
 enum tap_dance_codes {
@@ -189,21 +190,21 @@ TG(3),        KC_J,           KC_L,                KC_U,               KC_Y,    
   ),
   [SYM] = LAYOUT_ergodox(
   // left hand ---------------------------------------------------------------------------------------------------
-            ___,                KC_1,                  KC_2,               KC_3,             KC_4,               KC_5,           ___,                                
-    ST_MACRO_2,    ST_MACRO_3,      KC_AMPR,        KC_PLUS,        KC_ASTR,        KC_EQUAL,     ___,     
-            ___,              KC_LCBR,        KC_LBRACKET,    KC_LPRN,        KC_EXLM,        KC_UNDS,             
-            ___,           KC_BSLASH,             KC_AT,          KC_HASH,        KC_DLR,          KC_PERC,       ___,     
-            ___,                 ___,                      ___,                  ___,                  ___,                                                                                               
+            ___,                KC_1,          KC_2,          KC_3,           KC_4,           KC_5,        ___,                                
+          ST_MACRO_2,        ST_MACRO_3,      KC_AMPR,       KC_PLUS,        KC_ASTR,        KC_EQUAL,     ___,     
+            ___,              KC_LCBR,       KC_LBRACKET,    KC_LPRN,        KC_EXLM,        KC_UNDS,             
+            ___,              KC_BSLASH,       KC_AT,        KC_HASH,        KC_DLR,         KC_PERC,      ___,     
+            ___,                 ___,           ___,           ___,           ___,                                                                                            
  // left thumb --------------------------------------------------------------------------------------------------
-                                                                                                 ___, ___,
-                                                                                                       ___,
+                                                                                                ___, ___,
+                                                                                                     ___,
                                                                                            ___, ___, ___,
 // right hand --------------------------------------------------------------------------------------------------
-                                 ___,        KC_6,               KC_7,              KC_8,                  KC_9,               KC_0,                 ___,
-                                 ___,      KC_TILD,        KC_SLASH,      KC_MINUS,           KC_PIPE,        ST_MACRO_4,   ST_MACRO_5,
-                                        ST_MACRO_6,  ST_MACRO_7,     KC_RPRN,        KC_RBRACKET,     KC_RCBR,            ___,
-                                 ___,      KC_CIRC,             ___,           ST_MACRO_8,            ___,            KC_BSLASH,           ___,
-                                                                       ___,                  ___,                     ___,                  ___,                TO(0),
+                                 ___,        KC_6,        KC_7,          KC_8,             KC_9,          KC_0,          ___,
+                                 ___,      KC_TILD,      KC_SLASH,      KC_MINUS,         KC_PIPE,      ST_MACRO_4,   ST_MACRO_5,
+                                          ST_MACRO_6,   ST_MACRO_7,     KC_RPRN,        KC_RBRACKET,     KC_RCBR,        ___,
+                                 ___,      KC_CIRC,        ___,        ST_MACRO_8,      ST_MACRO_25,     KC_BSLASH,      ___,
+                                                           ___,           ___,              ___,           ___,          TO(0),
 // right thumb -------------------------------------------------------------------------------------------------
                ___, ___,
                ___,
@@ -401,17 +402,26 @@ uint32_t layer_state_set_user(uint32_t state) {
   return state;
 };
 
+uint16_t get_tapping_term(uint16_t keycode, keyrecord_t *record) {
+    switch (keycode) {
+        case LT(1,KC_A):
+            return 190;
+        default:
+            return TAPPING_TERM;
+    }
+}
+
 bool process_record_user(uint16_t keycode, keyrecord_t *record) {
   switch (keycode) {
     case ST_MACRO_0:
     if (record->event.pressed) {
-      SEND_STRING(SS_LCTL(SS_TAP(X_C)) SS_DELAY(100) SS_LALT(SS_TAP(X_F4)));
+      SEND_STRING(SS_LCTL(SS_TAP(X_C)) SS_DELAY(50) SS_LALT(SS_TAP(X_F4)));
 
     }
     break;
     case ST_MACRO_1:
     if (record->event.pressed) {
-      SEND_STRING(SS_LALT(SS_TAP(X_SPACE)) SS_DELAY(100) SS_TAP(X_N));
+      SEND_STRING(SS_LALT(SS_TAP(X_SPACE)) SS_DELAY(50) SS_TAP(X_N));
 
     }
     break;
@@ -441,19 +451,19 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_6:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_END) SS_DELAY(100) SS_TAP(X_SCOLON) SS_DELAY(100) SS_TAP(X_ENTER));
+      SEND_STRING(SS_TAP(X_END) SS_DELAY(50) SS_TAP(X_SCOLON) SS_DELAY(50) SS_TAP(X_ENTER));
 
     }
     break;
     case ST_MACRO_7:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_EQUAL) SS_DELAY(100) SS_TAP(X_EQUAL));
+      SEND_STRING(SS_TAP(X_EQUAL) SS_DELAY(50) SS_TAP(X_EQUAL));
 
     }
     break;
     case ST_MACRO_8:
     if (record->event.pressed) {
-      SEND_STRING(SS_LSFT(SS_TAP(X_COMMA)) SS_DELAY(100) SS_TAP(X_SLASH));
+      SEND_STRING(SS_LSFT(SS_TAP(X_COMMA)) SS_DELAY(50) SS_TAP(X_SLASH));
 
     }
     break;
@@ -465,37 +475,37 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_10:
     if (record->event.pressed) {
-      SEND_STRING(SS_LSFT(SS_TAP(X_7)) SS_DELAY(100) SS_LSFT(SS_TAP(X_7)));
+      SEND_STRING(SS_LSFT(SS_TAP(X_7)) SS_DELAY(50) SS_LSFT(SS_TAP(X_7)));
 
     }
     break;
     case ST_MACRO_11:
     if (record->event.pressed) {
-      SEND_STRING(SS_LSFT(SS_TAP(X_EQUAL)) SS_DELAY(100) SS_LSFT(SS_TAP(X_EQUAL)) SS_DELAY(100) SS_TAP(X_SCOLON) SS_DELAY(100) SS_TAP(X_ENTER));
+      SEND_STRING(SS_LSFT(SS_TAP(X_EQUAL)) SS_DELAY(50) SS_LSFT(SS_TAP(X_EQUAL)) SS_DELAY(50) SS_TAP(X_SCOLON) SS_DELAY(50) SS_TAP(X_ENTER));
 
     }
     break;
     case ST_MACRO_12:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_END) SS_DELAY(100) SS_TAP(X_SPACE) SS_DELAY(100) SS_LSFT(SS_TAP(X_LBRACKET)) SS_DELAY(100) SS_TAP(X_ENTER));
+      SEND_STRING(SS_TAP(X_END) SS_DELAY(50) SS_TAP(X_SPACE) SS_DELAY(50) SS_LSFT(SS_TAP(X_LBRACKET)) SS_DELAY(50) SS_TAP(X_ENTER));
 
     }
     break;
     case ST_MACRO_13:
     if (record->event.pressed) {
-      SEND_STRING(SS_LSFT(SS_TAP(X_9)) SS_DELAY(100) SS_LSFT(SS_TAP(X_0)));
+      SEND_STRING(SS_LSFT(SS_TAP(X_9)) SS_DELAY(50) SS_LSFT(SS_TAP(X_0)));
 
     }
     break;
     case ST_MACRO_14:
     if (record->event.pressed) {
-      SEND_STRING(SS_LSFT(SS_TAP(X_1)) SS_DELAY(100) SS_TAP(X_EQUAL));
+      SEND_STRING(SS_LSFT(SS_TAP(X_1)) SS_DELAY(50) SS_TAP(X_EQUAL));
 
     }
     break;
     case ST_MACRO_15:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_ENTER) SS_DELAY(100) SS_LSFT(SS_TAP(X_RBRACKET)) SS_DELAY(100) SS_TAP(X_UP));
+      SEND_STRING(SS_TAP(X_ENTER) SS_DELAY(50) SS_LSFT(SS_TAP(X_RBRACKET)) SS_DELAY(50) SS_TAP(X_UP));
 
     }
     break;
@@ -507,7 +517,7 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_17:
     if (record->event.pressed) {
-      SEND_STRING(SS_LSFT(SS_TAP(X_BSLASH)) SS_DELAY(100) SS_LSFT(SS_TAP(X_BSLASH)));
+      SEND_STRING(SS_LSFT(SS_TAP(X_BSLASH)) SS_DELAY(50) SS_LSFT(SS_TAP(X_BSLASH)));
 
     }
     break;
@@ -519,31 +529,31 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     break;
     case ST_MACRO_19:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_EQUAL) SS_DELAY(100) SS_TAP(X_EQUAL) SS_DELAY(100) SS_TAP(X_EQUAL));
+      SEND_STRING(SS_TAP(X_EQUAL) SS_DELAY(50) SS_TAP(X_EQUAL) SS_DELAY(50) SS_TAP(X_EQUAL));
 
     }
     break;
     case ST_MACRO_20:
     if (record->event.pressed) {
-      SEND_STRING(SS_LSFT(SS_TAP(X_9)) SS_DELAY(100) SS_LSFT(SS_TAP(X_0)) SS_DELAY(100) SS_TAP(X_SCOLON) SS_DELAY(100) SS_TAP(X_ENTER));
+      SEND_STRING(SS_LSFT(SS_TAP(X_9)) SS_DELAY(50) SS_LSFT(SS_TAP(X_0)) SS_DELAY(50) SS_TAP(X_SCOLON) SS_DELAY(50) SS_TAP(X_ENTER));
 
     }
     break;
     case ST_MACRO_21:
     if (record->event.pressed) {
-      SEND_STRING(SS_LSFT(SS_TAP(X_COMMA)) SS_DELAY(100) SS_TAP(X_EQUAL));
+      SEND_STRING(SS_LSFT(SS_TAP(X_COMMA)) SS_DELAY(50) SS_TAP(X_EQUAL));
 
     }
     break;
     case ST_MACRO_22:
     if (record->event.pressed) {
-      SEND_STRING(SS_LSFT(SS_TAP(X_DOT)) SS_DELAY(100) SS_TAP(X_EQUAL));
+      SEND_STRING(SS_LSFT(SS_TAP(X_DOT)) SS_DELAY(50) SS_TAP(X_EQUAL));
 
     }
     break;
     case ST_MACRO_23:
     if (record->event.pressed) {
-      SEND_STRING(SS_TAP(X_END) SS_DELAY(100) SS_LSFT(SS_TAP(X_HOME)) SS_DELAY(100) SS_TAP(X_DELETE) SS_DELAY(100) SS_TAP(X_DELETE));
+      SEND_STRING(SS_TAP(X_END) SS_DELAY(50) SS_LSFT(SS_TAP(X_HOME)) SS_DELAY(50) SS_TAP(X_DELETE) SS_DELAY(50) SS_TAP(X_DELETE));
 
     }
     break;
@@ -551,6 +561,11 @@ bool process_record_user(uint16_t keycode, keyrecord_t *record) {
     if (record->event.pressed) {
       SEND_STRING(SS_LCTL(SS_TAP(X_X)) SS_DELAY(50) SS_LSFT(SS_TAP(X_LBRACKET)) SS_DELAY(50) SS_LSFT(SS_TAP(X_RBRACKET)) SS_DELAY(50) SS_TAP(X_LEFT) SS_DELAY(50) SS_TAP(X_ENTER) SS_DELAY(50) SS_LCTL(SS_TAP(X_V)) SS_DELAY(50) SS_TAP(X_ENTER) SS_DELAY(50) SS_TAP(X_UP));
 
+    }
+    break;
+    case ST_MACRO_25:
+    if (record->event.pressed) {
+      SEND_STRING(SS_TAP(X_DOT) SS_DELAY(50) SS_TAP(X_DOT));
     }
     break;
   }
