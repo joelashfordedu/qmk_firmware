@@ -1,6 +1,7 @@
 #include QMK_KEYBOARD_H
 #include "version.h"
 #include <stdlib.h>
+#include <stdint.h>
 
 // The layers for this keyboard.
 #define BASE 0
